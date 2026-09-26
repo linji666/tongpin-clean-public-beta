@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="96dp"
+    android:height="96dp"
+    android:viewportWidth="100"
+    android:viewportHeight="100">
+
+    <!-- 耳朵 -->
+    <path
+        android:fillColor="#E8B98A"
+        android:pathData="M24,34 L17,10 L44,23 Z" />
+    <path
+        android:fillColor="#E8B98A"
+        android:pathData="M76,34 L83,10 L56,23 Z" />
+    <path
+        android:fillColor="#F6D9BE"
+        android:pathData="M28,32 L23,17 L40,26 Z" />
+    <path
+        android:fillColor="#F6D9BE"
+        android:pathData="M72,32 L77,17 L60,26 Z" />
+
+    <!-- 脸 -->
+    <path
+        android:fillColor="#F0C79B"
+        android:pathData="M50,24 a32,32 0 1,0 0.1,0 z" />
+
+    <!-- 眼睛 -->
+    <path
+        android:fillColor="#3A2E28"
+        android:pathData="M35,50 a4.5,4.5 0 1,0 0.1,0 z" />
+    <path
+        android:fillColor="#3A2E28"
+        android:pathData="M65,50 a4.5,4.5 0 1,0 0.1,0 z" />
+
+    <!-- 腮红 -->
+    <path
+        android:fillColor="#EFB39B"
+        android:fillAlpha="0.7"
+        android:pathData="M29,59 a5.5,3.5 0 1,0 0.1,0 z" />
+    <path
+        android:fillColor="#EFB39B"
+        android:fillAlpha="0.7"
+        android:pathData="M71,59 a5.5,3.5 0 1,0 0.1,0 z" />
+
+    <!-- 鼻子 -->
+    <path
+        android:fillColor="#C98152"
+        android:pathData="M46,62 L54,62 L50,68 Z" />
+
+    <!-- 嘴 -->
+    <path
+        android:strokeColor="#8A6A55"
+        android:strokeWidth="2"
+        android:strokeLineCap="round"
+        android:pathData="M50,68 L50,73" />
+    <path
+        android:strokeColor="#8A6A55"
+        android:strokeWidth="2"
+        android:strokeLineCap="round"
+        android:pathData="M50,73 Q44,79 38,73" />
+    <path
+        android:strokeColor="#8A6A55"
+        android:strokeWidth="2"
+        android:strokeLineCap="round"
+        android:pathData="M50,73 Q56,79 62,73" />
+
+    <!-- 胡须 -->
+    <path
+        android:strokeColor="#B99A82"
+        android:strokeWidth="1.6"
+        android:strokeLineCap="round"
+        android:pathData="M26,56 L38,58" />
+    <path
+        android:strokeColor="#B99A82"
+        android:strokeWidth="1.6"
+        android:strokeLineCap="round"
+        android:pathData="M26,64 L38,63" />
+    <path
+        android:strokeColor="#B99A82"
+        android:strokeWidth="1.6"
+        android:strokeLineCap="round"
+        android:pathData="M74,56 L62,58" />
+    <path
+        android:strokeColor="#B99A82"
+        android:strokeWidth="1.6"
+        android:strokeLineCap="round"
+        android:pathData="M74,64 L62,63" />
+</vector>

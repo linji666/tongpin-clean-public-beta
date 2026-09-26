@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="96dp"
+    android:height="96dp"
+    android:viewportWidth="100"
+    android:viewportHeight="100">
+
+    <!-- 垂耳 -->
+    <path
+        android:fillColor="#C9A98A"
+        android:pathData="M20,44 a11,20 0 1,0 0.1,0 z" />
+    <path
+        android:fillColor="#C9A98A"
+        android:pathData="M80,44 a11,20 0 1,0 0.1,0 z" />
+
+    <!-- 脸 -->
+    <path
+        android:fillColor="#EBD9C2"
+        android:pathData="M50,22 a30,30 0 1,0 0.1,0 z" />
+
+    <!-- 眼睛 -->
+    <path
+        android:fillColor="#3A2E28"
+        android:pathData="M37,48 a4,4 0 1,0 0.1,0 z" />
+    <path
+        android:fillColor="#3A2E28"
+        android:pathData="M63,48 a4,4 0 1,0 0.1,0 z" />
+
+    <!-- 腮红 -->
+    <path
+        android:fillColor="#EFB39B"
+        android:fillAlpha="0.7"
+        android:pathData="M29,57 a5,3 0 1,0 0.1,0 z" />
+    <path
+        android:fillColor="#EFB39B"
+        android:fillAlpha="0.7"
+        android:pathData="M71,57 a5,3 0 1,0 0.1,0 z" />
+
+    <!-- 鼻头 -->
+    <path
+        android:fillColor="#5A4A3F"
+        android:pathData="M45,60 a6,5 0 1,0 0.1,0 z" />
+
+    <!-- 嘴 -->
+    <path
+        android:strokeColor="#8A6A55"
+        android:strokeWidth="2"
+        android:strokeLineCap="round"
+        android:pathData="M50,65 L50,71" />
+    <path
+        android:strokeColor="#8A6A55"
+        android:strokeWidth="2"
+        android:strokeLineCap="round"
+        android:pathData="M50,71 Q45,77 39,71" />
+    <path
+        android:strokeColor="#8A6A55"
+        android:strokeWidth="2"
+        android:strokeLineCap="round"
+        android:pathData="M50,71 Q55,77 61,71" />
+</vector>
