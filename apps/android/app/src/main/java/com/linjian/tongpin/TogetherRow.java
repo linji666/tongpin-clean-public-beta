@@ -1,6 +1,10 @@
 package com.linjian.tongpin;
 
 import android.app.Activity;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Outline;
 import android.graphics.Typeface;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Handler;
@@ -8,6 +12,7 @@ import android.os.Looper;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewOutlineProvider;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
@@ -26,9 +31,15 @@ public final class TogetherRow extends LinearLayout {
     private static final String TAG = "tongpin.together";
     private static final long TICK_MS = 500L;
 
-    private static final int AVATAR_DP = 52;
+    private static final int AVATAR_DP = 56;
     private static final int GAP_OPEN_DP = 104;
     private static final int GAP_TOUCH_DP = 4;
+
+    private static final float CROP_SCALE = 0.62f;
+    private static final float HER_FOCUS_X = 0.56f;
+    private static final float HER_FOCUS_Y = 0.16f;
+    private static final float ME_FOCUS_X = 0.04f;
+    private static final float ME_FOCUS_Y = 0.16f;
 
     private static final int COLOR_CARD = 0xFFF4EDE2;
     private static final int COLOR_BORDER = 0xFFE8DAC9;
@@ -69,13 +80,13 @@ public final class TogetherRow extends LinearLayout {
                 ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT));
 
-        leftAvatar = avatar(activity, R.drawable.ic_tong_cat);
+        leftAvatar = avatar(activity, cropAvatar(activity, R.drawable.avatar_her, HER_FOCUS_X, HER_FOCUS_Y));
         stage.addView(leftAvatar, circleParams());
 
         spacer = new View(activity);
         stage.addView(spacer, new LayoutParams(dp(GAP_OPEN_DP), dp(2)));
 
-        rightAvatar = avatar(activity, R.drawable.ic_tong_dog);
+        rightAvatar = avatar(activity, cropAvatar(activity, R.drawable.avatar_me, ME_FOCUS_X, ME_FOCUS_Y));
         stage.addView(rightAvatar, circleParams());
 
         hint = new TextView(activity);
@@ -167,11 +178,41 @@ public final class TogetherRow extends LinearLayout {
         }
     }
 
-    private static ImageView avatar(Activity activity, int drawableId) {
+    private static ImageView avatar(Activity activity, Bitmap bitmap) {
         ImageView view = new ImageView(activity);
-        view.setImageResource(drawableId);
+        if (bitmap != null) view.setImageBitmap(bitmap);
         view.setScaleType(ImageView.ScaleType.FIT_CENTER);
+        view.setClipToOutline(true);
+        view.setOutlineProvider(new ViewOutlineProvider() {
+            @Override
+            public void getOutline(View target, Outline outline) {
+                outline.setOval(0, 0, target.getWidth(), target.getHeight());
+            }
+        });
         return view;
+    }
+
+    private static Bitmap cropAvatar(Context context, int resId, float focusX, float focusY) {
+        try {
+            Bitmap source = BitmapFactory.decodeResource(context.getResources(), resId);
+            if (source == null) return null;
+            int width = source.getWidth();
+            int height = source.getHeight();
+            int window = Math.max(1, Math.round(Math.min(width, height) * CROP_SCALE));
+            int x = Math.round((width - window) * clamp(focusX));
+            int y = Math.round((height - window) * clamp(focusY));
+            x = Math.max(0, Math.min(width - window, x));
+            y = Math.max(0, Math.min(height - window, y));
+            return Bitmap.createBitmap(source, x, y, window, window);
+        } catch (Throwable error) {
+            return null;
+        }
+    }
+
+    private static float clamp(float value) {
+        if (value < 0f) return 0f;
+        if (value > 1f) return 1f;
+        return value;
     }
 
     private LayoutParams circleParams() {
